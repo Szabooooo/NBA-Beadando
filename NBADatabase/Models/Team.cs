@@ -15,7 +15,7 @@ namespace NBADatabase.Models
         public int Losses { get; set; }
         
         [NotMapped]
-        public double PCT => Wins + Losses == 0 ? 0 : (double)Wins / Losses;
+        public double PCT => Wins + Losses == 0 ? 0 : (double)Wins / (Losses + Wins);
 
     }
 }

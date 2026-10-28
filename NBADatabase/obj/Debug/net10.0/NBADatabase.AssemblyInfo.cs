@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NBADatabase")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9202dd96a504531a7d72e0d4c60f1d9dada19624")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6faccbaa2fe0c1736c22e576ca4a0180dd426d36")]
 [assembly: System.Reflection.AssemblyProductAttribute("NBADatabase")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NBADatabase")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

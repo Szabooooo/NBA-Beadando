@@ -27,19 +27,19 @@ namespace NBADatabase.Models
         [Display(Name = "BPG")]
         public double Bpg { get; set; }
         
-        [Display(Name = "FPG")]
+        [Display(Name = "FG%")]
         public double Fgp { get; set; }
 
-        [Display(Name = "TPP")]
+        [Display(Name = "3P%")]
         public double Tpp { get; set; }
 
-        [Display(Name = "FTP")]
+        [Display(Name = "FT%")]
         public double Ftp { get; set; }
 
-        [Display(Name = "TSP")]
+        [Display(Name = "TS%")]
         public double Tsp { get; set; }
 
         [Display(Name = "Box+/-")]
-        public int Bpm { get; set; }
+        public double Bpm { get; set; }
     }
 }
