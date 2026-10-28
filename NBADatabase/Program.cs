@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using NBADatabase.Data;
+
 namespace NBADatabase
 {
     public class Program
@@ -8,6 +11,8 @@ namespace NBADatabase
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+
+            builder.Services.AddDbContext<NBADbContext>(o => o.UseSqlite(builder.Configuration.GetConnectionString("Default")));
 
             var app = builder.Build();
 
