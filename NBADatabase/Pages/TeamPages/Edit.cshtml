@@ -1,0 +1,61 @@
+@page
+@model NBADatabase.Pages.TeamPages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Team</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Team.Id" />
+            <div class="form-group">
+                <label asp-for="Team.Players" class="control-label"></label>
+                <input asp-for="Team.Players" class="form-control" />
+                <span asp-validation-for="Team.Players" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Team.Name" class="control-label"></label>
+                <input asp-for="Team.Name" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Team.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Team.City" class="control-label"></label>
+                <input asp-for="Team.City" class="form-control" />
+                <span asp-validation-for="Team.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Team.Wins" class="control-label"></label>
+                <input asp-for="Team.Wins" class="form-control" />
+                <span asp-validation-for="Team.Wins" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Team.Losses" class="control-label"></label>
+                <input asp-for="Team.Losses" class="form-control" />
+                <span asp-validation-for="Team.Losses" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Team.PCT" class="control-label"></label>
+                <input asp-for="Team.PCT" class="form-control" />
+                <span asp-validation-for="Team.PCT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

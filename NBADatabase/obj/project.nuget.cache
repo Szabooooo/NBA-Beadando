@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ailX1sMT8vg=",
+  "dgSpecHash": "iDYwEFmPcVg=",
   "success": true,
   "projectFilePath": "C:\\Users\\msaso\\Desktop\\Kodok\\C#\\BeadandoNBA\\NBADatabase\\NBADatabase.csproj",
   "expectedPackageFiles": [
@@ -25,10 +25,11 @@
     "C:\\Users\\msaso\\.nuget\\packages\\microsoft.visualstudio.solutionpersistence\\1.0.52\\microsoft.visualstudio.solutionpersistence.1.0.52.nupkg.sha512",
     "C:\\Users\\msaso\\.nuget\\packages\\mono.texttemplating\\3.0.0\\mono.texttemplating.3.0.0.nupkg.sha512",
     "C:\\Users\\msaso\\.nuget\\packages\\newtonsoft.json\\13.0.4\\newtonsoft.json.13.0.4.nupkg.sha512",
-    "C:\\Users\\msaso\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.13\\sqlitepclraw.bundle_e_sqlite3.2.1.13.nupkg.sha512",
-    "C:\\Users\\msaso\\.nuget\\packages\\sqlitepclraw.core\\2.1.13\\sqlitepclraw.core.2.1.13.nupkg.sha512",
-    "C:\\Users\\msaso\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.13\\sqlitepclraw.lib.e_sqlite3.2.1.13.nupkg.sha512",
-    "C:\\Users\\msaso\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.13\\sqlitepclraw.provider.e_sqlite3.2.1.13.nupkg.sha512",
+    "C:\\Users\\msaso\\.nuget\\packages\\sqlite\\3.53.4\\sqlite.3.53.4.nupkg.sha512",
+    "C:\\Users\\msaso\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\3.0.5\\sqlitepclraw.bundle_e_sqlite3.3.0.5.nupkg.sha512",
+    "C:\\Users\\msaso\\.nuget\\packages\\sqlitepclraw.config.e_sqlite3\\3.0.5\\sqlitepclraw.config.e_sqlite3.3.0.5.nupkg.sha512",
+    "C:\\Users\\msaso\\.nuget\\packages\\sqlitepclraw.core\\3.0.5\\sqlitepclraw.core.3.0.5.nupkg.sha512",
+    "C:\\Users\\msaso\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\3.0.5\\sqlitepclraw.provider.e_sqlite3.3.0.5.nupkg.sha512",
     "C:\\Users\\msaso\\.nuget\\packages\\system.codedom\\6.0.0\\system.codedom.6.0.0.nupkg.sha512",
     "C:\\Users\\msaso\\.nuget\\packages\\system.composition\\9.0.0\\system.composition.9.0.0.nupkg.sha512",
     "C:\\Users\\msaso\\.nuget\\packages\\system.composition.attributedmodel\\9.0.0\\system.composition.attributedmodel.9.0.0.nupkg.sha512",

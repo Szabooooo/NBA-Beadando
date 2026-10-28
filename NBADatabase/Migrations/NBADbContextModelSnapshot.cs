@@ -94,7 +94,7 @@ namespace NBADatabase.Migrations
 
                     b.HasIndex("TeamId");
 
-                    b.ToTable("Player");
+                    b.ToTable("Players");
                 });
 
             modelBuilder.Entity("NBADatabase.Models.Team", b =>

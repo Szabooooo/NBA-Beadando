@@ -5,6 +5,27 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to the NBA database!</h1>
 </div>
+
+
+
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Record</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var team in Model.Teams)
+            {
+                <tr>
+                    <td>@team.Name</td>
+                    <td>@team.City</td>
+                    <td>@team.PCT</td>
+                </tr>
+            }
+        </tbody>
+    </table>

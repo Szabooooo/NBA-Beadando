@@ -35,8 +35,48 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/GamePages/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FtZVBhZ2VzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/GamePages/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FtZVBhZ2VzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/GamePages/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FtZVBhZ2VzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/GamePages/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FtZVBhZ2VzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/GamePages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FtZVBhZ2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/PlayerPages/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxheWVyUGFnZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/PlayerPages/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxheWVyUGFnZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/PlayerPages/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxheWVyUGFnZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/PlayerPages/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxheWVyUGFnZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/PlayerPages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxheWVyUGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/Privacy.cshtml]
@@ -45,6 +85,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/TeamPages/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhbVBhZ2VzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/TeamPages/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhbVBhZ2VzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/TeamPages/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhbVBhZ2VzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/TeamPages/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhbVBhZ2VzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/TeamPages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhbVBhZ2VzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/_ViewImports.cshtml]

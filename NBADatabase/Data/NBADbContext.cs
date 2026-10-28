@@ -26,6 +26,6 @@ namespace NBADatabase.Data
 
         public DbSet<Game> Games => Set<Game>();
         public DbSet<Team> Team => Set<Team>();
-        public DbSet<Player> Player => Set<Player>();
+        public DbSet<Player> Players => Set<Player>();
     }
 }
