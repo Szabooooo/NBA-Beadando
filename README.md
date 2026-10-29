@@ -1,31 +1,4 @@
 # NBA Database
-
-ASP.NET Core Razor Pages alkalmazás NBA csapatok, játékosok és mérkőzések nyilvántartására. A mérkőzésekhez játékosonkénti statisztika (box score) rögzíthető, és ebből az alkalmazás automatikusan kiszámolja a játékosok átlagait és a csapatok győzelem–vereség mérlegét. A főoldalon ranglista mutatja a liga legjobbjait.
-
-## Technológiák
-
-- **.NET 10**, ASP.NET Core Razor Pages
-- **Entity Framework Core 10** SQLite adatbázissal (`nbaDB.db`)
-- **Bootstrap 5**, jQuery Validation (kliensoldali ellenőrzés)
-
-## Indítás
-
-1. Az adatbázis frissítése a legújabb migrációra (a projekt mappájából, `NBADatabase/`):
-
-   ```bash
-   dotnet ef database update
-   ```
-
-2. Az alkalmazás indítása:
-
-   ```bash
-   dotnet run
-   ```
-
-3. Böngészőben: `http://localhost:5266` (vagy Visual Studióból F5).
-
-Az adatbázis elérési útja az `appsettings.json` fájlban, a `ConnectionStrings:Default` kulcs alatt található.
-
 ## Funkciók
 
 ### Főoldal (`Pages/Index`)
