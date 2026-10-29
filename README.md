@@ -43,17 +43,6 @@
   - Szerkesztésnél a már rögzített box score előre ki van töltve.
 - **Részletek / törlés:** a meccs adatai és mindkét csapat box score-ja összesítő sorral.
 
-### Ellenőrzések (validáció)
-
-- Egy csapat nem játszhat saját maga ellen.
-- Döntetlen nem lehetséges (az NBA-ben nincs döntetlen).
-- Pontszámok és statisztikák nem lehetnek negatívak (kivéve a +/-).
-- Box score soronként:
-  - a dobott nem lehet több, mint a kísérlet (FGM ≤ FGA, 3PM ≤ 3PA, FTM ≤ FTA);
-  - a hárompontos is mezőnykosár, ezért 3PM ≤ FGM és 3PA ≤ FGA;
-  - a pontnak egyeznie kell a dobásokkal: PTS = 2 × FGM + 3PM + FTM.
-- A hibaüzenet az érintett mező vagy játékos sora alatt jelenik meg.
-
 ### Automatikus statisztika-számítás
 
 Mérkőzés létrehozásakor, szerkesztésekor vagy törlésekor az érintett játékosok és csapatok statisztikái **az összes meccsük alapján újraszámolódnak**:
