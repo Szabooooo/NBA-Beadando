@@ -6,8 +6,9 @@ namespace NBADatabase.Models
     public class Player
     {
         public int Id {  get; set; }
+        [Required(ErrorMessage = "Team must be selected!"), Display(Name = "Team")]
         public int TeamId { get; set; }
-        public Team? Team { get; set; } = new();
+        public Team? Team { get; set; }
 
         [Required(ErrorMessage = "Player name must be set"), Display(Name = "Name")]
         public string Name { get; set; } = string.Empty;

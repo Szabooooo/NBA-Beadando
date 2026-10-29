@@ -1,4 +1,4 @@
-@page
+﻿@page
 @model NBADatabase.Pages.PlayerPages.IndexModel
 
 @{
@@ -15,9 +15,6 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Player[0].TeamId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Player[0].Team)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Player[0].Name)
@@ -59,10 +56,7 @@
 @foreach (var item in Model.Player) {
         <tr>
             <td>
-                @Html.DisplayFor(model => item.TeamId)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Team)
+                @Html.DisplayFor(model => item.Team!.Name)
             </td>
             <td>
                 @Html.DisplayFor(model => item.Name)

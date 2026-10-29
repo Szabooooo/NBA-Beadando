@@ -212,7 +212,6 @@ C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\refint
 C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\NBADatabase.pdb
 C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\NBADatabase.genruntimeconfig.cache
 C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\ref\NBADatabase.dll
-C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\bin\Debug\net10.0\runtimes\android-arm\native\libe_sqlite3.so
 C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\bin\Debug\net10.0\runtimes\android-arm64\native\libe_sqlite3.so
 C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\bin\Debug\net10.0\runtimes\android-x64\native\libe_sqlite3.so
@@ -221,3 +220,13 @@ C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\bin\Debug\net10.0\runtim
 C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\bin\Debug\net10.0\runtimes\ios-arm64\native\e_sqlite3.a
 C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\bin\Debug\net10.0\runtimes\iossimulator-arm64\native\e_sqlite3.a
 C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\bin\Debug\net10.0\runtimes\iossimulator-x64\native\e_sqlite3.a
+C:\Users\msaso\AppData\Local\Temp\claude\C--Users-msaso-Desktop-Kodok-C--BeadandoNBA-NBADatabase\887e9289-c6f7-495a-b95f-98e580adc5b6\scratchpad\build\appsettings.Development.json
+C:\Users\msaso\AppData\Local\Temp\claude\C--Users-msaso-Desktop-Kodok-C--BeadandoNBA-NBADatabase\887e9289-c6f7-495a-b95f-98e580adc5b6\scratchpad\build\appsettings.json
+C:\Users\msaso\AppData\Local\Temp\claude\C--Users-msaso-Desktop-Kodok-C--BeadandoNBA-NBADatabase\887e9289-c6f7-495a-b95f-98e580adc5b6\scratchpad\build\NBADatabase.staticwebassets.runtime.json
+C:\Users\msaso\AppData\Local\Temp\claude\C--Users-msaso-Desktop-Kodok-C--BeadandoNBA-NBADatabase\887e9289-c6f7-495a-b95f-98e580adc5b6\scratchpad\build\NBADatabase.staticwebassets.endpoints.json
+C:\Users\msaso\AppData\Local\Temp\claude\C--Users-msaso-Desktop-Kodok-C--BeadandoNBA-NBADatabase\887e9289-c6f7-495a-b95f-98e580adc5b6\scratchpad\build\NBADatabase.exe
+C:\Users\msaso\AppData\Local\Temp\claude\C--Users-msaso-Desktop-Kodok-C--BeadandoNBA-NBADatabase\887e9289-c6f7-495a-b95f-98e580adc5b6\scratchpad\build\NBADatabase.deps.json
+C:\Users\msaso\AppData\Local\Temp\claude\C--Users-msaso-Desktop-Kodok-C--BeadandoNBA-NBADatabase\887e9289-c6f7-495a-b95f-98e580adc5b6\scratchpad\build\NBADatabase.runtimeconfig.json
+C:\Users\msaso\AppData\Local\Temp\claude\C--Users-msaso-Desktop-Kodok-C--BeadandoNBA-NBADatabase\887e9289-c6f7-495a-b95f-98e580adc5b6\scratchpad\build\NBADatabase.dll
+C:\Users\msaso\AppData\Local\Temp\claude\C--Users-msaso-Desktop-Kodok-C--BeadandoNBA-NBADatabase\887e9289-c6f7-495a-b95f-98e580adc5b6\scratchpad\build\NBADatabase.pdb
+C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
