@@ -28,55 +28,56 @@
                 <input asp-for="Player.Name" class="form-control" aria-required="true"/>
                 <span asp-validation-for="Player.Name" class="text-danger"></span>
             </div>
+            <p class="text-muted small mb-1">Stats are optional (empty = 0) and are recalculated from box scores once the player plays a game.</p>
             <div class="row">
                 <div class="form-group col-6 mb-2">
                     <label asp-for="Player.Ppg" class="control-label"></label>
-                    <input asp-for="Player.Ppg" class="form-control" />
+                    <input asp-for="Player.Ppg" class="form-control" type="number" step="any" data-val="false" placeholder="0" />
                     <span asp-validation-for="Player.Ppg" class="text-danger"></span>
                 </div>
                 <div class="form-group col-6 mb-2">
                     <label asp-for="Player.Rpg" class="control-label"></label>
-                    <input asp-for="Player.Rpg" class="form-control" />
+                    <input asp-for="Player.Rpg" class="form-control" type="number" step="any" data-val="false" placeholder="0" />
                     <span asp-validation-for="Player.Rpg" class="text-danger"></span>
                 </div>
                 <div class="form-group col-6 mb-2">
                     <label asp-for="Player.Apg" class="control-label"></label>
-                    <input asp-for="Player.Apg" class="form-control" />
+                    <input asp-for="Player.Apg" class="form-control" type="number" step="any" data-val="false" placeholder="0" />
                     <span asp-validation-for="Player.Apg" class="text-danger"></span>
                 </div>
                 <div class="form-group col-6 mb-2">
                     <label asp-for="Player.Spg" class="control-label"></label>
-                    <input asp-for="Player.Spg" class="form-control" />
+                    <input asp-for="Player.Spg" class="form-control" type="number" step="any" data-val="false" placeholder="0" />
                     <span asp-validation-for="Player.Spg" class="text-danger"></span>
                 </div>
                 <div class="form-group col-6 mb-2">
                     <label asp-for="Player.Bpg" class="control-label"></label>
-                    <input asp-for="Player.Bpg" class="form-control" />
+                    <input asp-for="Player.Bpg" class="form-control" type="number" step="any" data-val="false" placeholder="0" />
                     <span asp-validation-for="Player.Bpg" class="text-danger"></span>
                 </div>
                 <div class="form-group col-6 mb-2">
                     <label asp-for="Player.Fgp" class="control-label"></label>
-                    <input asp-for="Player.Fgp" class="form-control" />
+                    <input asp-for="Player.Fgp" class="form-control" type="number" step="any" data-val="false" placeholder="0" />
                     <span asp-validation-for="Player.Fgp" class="text-danger"></span>
                 </div>
                 <div class="form-group col-6 mb-2">
                     <label asp-for="Player.Tpp" class="control-label"></label>
-                    <input asp-for="Player.Tpp" class="form-control" />
+                    <input asp-for="Player.Tpp" class="form-control" type="number" step="any" data-val="false" placeholder="0" />
                     <span asp-validation-for="Player.Tpp" class="text-danger"></span>
                 </div>
                 <div class="form-group col-6 mb-2">
                     <label asp-for="Player.Ftp" class="control-label"></label>
-                    <input asp-for="Player.Ftp" class="form-control" />
+                    <input asp-for="Player.Ftp" class="form-control" type="number" step="any" data-val="false" placeholder="0" />
                     <span asp-validation-for="Player.Ftp" class="text-danger"></span>
                 </div>
                 <div class="form-group col-6 mb-2">
                     <label asp-for="Player.Tsp" class="control-label"></label>
-                    <input asp-for="Player.Tsp" class="form-control" />
+                    <input asp-for="Player.Tsp" class="form-control" type="number" step="any" data-val="false" placeholder="0" />
                     <span asp-validation-for="Player.Tsp" class="text-danger"></span>
                 </div>
                 <div class="form-group col-6 mb-2">
                     <label asp-for="Player.Bpm" class="control-label"></label>
-                    <input asp-for="Player.Bpm" class="form-control" />
+                    <input asp-for="Player.Bpm" class="form-control" type="number" step="any" data-val="false" placeholder="0" />
                     <span asp-validation-for="Player.Bpm" class="text-danger"></span>
                 </div>
             </div>

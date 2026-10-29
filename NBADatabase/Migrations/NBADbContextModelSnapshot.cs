@@ -97,6 +97,68 @@ namespace NBADatabase.Migrations
                     b.ToTable("Players");
                 });
 
+            modelBuilder.Entity("NBADatabase.Models.PlayerGameStat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Assists")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Blocks")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("FieldGoalsAttempted")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("FieldGoalsMade")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("FreeThrowsAttempted")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("FreeThrowsMade")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("GameId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PlayerId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PlusMinus")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Points")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Rebounds")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Steals")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TeamId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ThreePointersAttempted")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ThreePointersMade")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GameId");
+
+                    b.HasIndex("PlayerId");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("PlayerStats");
+                });
+
             modelBuilder.Entity("NBADatabase.Models.Team", b =>
                 {
                     b.Property<int>("Id")
@@ -150,6 +212,43 @@ namespace NBADatabase.Migrations
                         .IsRequired();
 
                     b.Navigation("Team");
+                });
+
+            modelBuilder.Entity("NBADatabase.Models.PlayerGameStat", b =>
+                {
+                    b.HasOne("NBADatabase.Models.Game", "Game")
+                        .WithMany("PlayerStats")
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NBADatabase.Models.Player", "Player")
+                        .WithMany("GameStats")
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NBADatabase.Models.Team", "Team")
+                        .WithMany()
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Game");
+
+                    b.Navigation("Player");
+
+                    b.Navigation("Team");
+                });
+
+            modelBuilder.Entity("NBADatabase.Models.Game", b =>
+                {
+                    b.Navigation("PlayerStats");
+                });
+
+            modelBuilder.Entity("NBADatabase.Models.Player", b =>
+                {
+                    b.Navigation("GameStats");
                 });
 
             modelBuilder.Entity("NBADatabase.Models.Team", b =>

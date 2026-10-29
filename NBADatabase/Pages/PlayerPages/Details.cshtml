@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Player details";
+    var gameLog = Model.Player.GameStats.OrderByDescending(s => s.Game?.GameDate).ToList();
 }
 
 <h1>Details</h1>
@@ -12,6 +13,56 @@
     <hr />
     <partial name="_PlayerDetails" model="Model.Player" />
 </div>
+
+<h4>Game log</h4>
+<hr />
+@if (gameLog.Count == 0)
+{
+    <p class="text-muted">No games played yet.</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Opponent</th>
+                    <th>PTS</th>
+                    <th>REB</th>
+                    <th>AST</th>
+                    <th>STL</th>
+                    <th>BLK</th>
+                    <th>FG</th>
+                    <th>3P</th>
+                    <th>FT</th>
+                    <th>+/-</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var s in gameLog)
+            {
+                var game = s.Game!;
+                var opponent = game.HomeTeamId == s.TeamId ? "vs " + game.AwayTeam?.Name : "@ " + game.HomeTeam?.Name;
+                <tr>
+                    <td><a asp-page="/GamePages/Details" asp-route-id="@s.GameId">@game.GameDate</a></td>
+                    <td>@opponent</td>
+                    <td>@s.Points</td>
+                    <td>@s.Rebounds</td>
+                    <td>@s.Assists</td>
+                    <td>@s.Steals</td>
+                    <td>@s.Blocks</td>
+                    <td>@s.FieldGoalsMade-@s.FieldGoalsAttempted</td>
+                    <td>@s.ThreePointersMade-@s.ThreePointersAttempted</td>
+                    <td>@s.FreeThrowsMade-@s.FreeThrowsAttempted</td>
+                    <td>@s.PlusMinus</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}
+
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Player.Id">Edit</a> |
     <a asp-page="./Index">Back to List</a>

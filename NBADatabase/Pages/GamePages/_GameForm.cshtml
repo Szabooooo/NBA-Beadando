@@ -1,0 +1,62 @@
+@model NBADatabase.Pages.GamePages.GameFormModel
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="row" style="max-width: 720px">
+    <div class="form-group col-md-4 mb-2">
+        <label asp-for="Game.GameDate" class="control-label"></label>
+        <input asp-for="Game.GameDate" type="date" class="form-control" />
+        <span asp-validation-for="Game.GameDate" class="text-danger"></span>
+    </div>
+</div>
+
+@foreach (var side in new[] { "Home", "Away" })
+{
+    var lines = side == "Home" ? Model.HomeLines : Model.AwayLines;
+    var teamSelected = (side == "Home" ? Model.Game.HomeTeamId : Model.Game.AwayTeamId) != 0;
+    <div class="border rounded p-3 mb-3">
+        <div class="row" style="max-width: 720px">
+            <div class="form-group col-8 mb-2">
+                <span class="text-danger">*</span>
+                @if (side == "Home")
+                {
+                    <label asp-for="Game.HomeTeamId" class="control-label"></label>
+                    <select asp-for="Game.HomeTeamId" asp-items="Model.TeamOptions" class="form-select team-select" data-side="Home">
+                        <option value="">-- Select a team --</option>
+                    </select>
+                    <span asp-validation-for="Game.HomeTeamId" class="text-danger"></span>
+                }
+                else
+                {
+                    <label asp-for="Game.AwayTeamId" class="control-label"></label>
+                    <select asp-for="Game.AwayTeamId" asp-items="Model.TeamOptions" class="form-select team-select" data-side="Away">
+                        <option value="">-- Select a team --</option>
+                    </select>
+                    <span asp-validation-for="Game.AwayTeamId" class="text-danger"></span>
+                }
+            </div>
+            <div class="form-group col-4 mb-2">
+                @if (side == "Home")
+                {
+                    <label asp-for="Game.HomePoints" class="control-label"></label>
+                    <input asp-for="Game.HomePoints" class="form-control team-points" type="number" min="0" data-val="false" data-side="Home" />
+                    <span asp-validation-for="Game.HomePoints" class="text-danger"></span>
+                }
+                else
+                {
+                    <label asp-for="Game.AwayPoints" class="control-label"></label>
+                    <input asp-for="Game.AwayPoints" class="form-control team-points" type="number" min="0" data-val="false" data-side="Away" />
+                    <span asp-validation-for="Game.AwayPoints" class="text-danger"></span>
+                }
+            </div>
+        </div>
+        <div class="box-score-container" data-side="@side">
+            @if (teamSelected)
+            {
+                <partial name="_BoxScoreForm" model="new NBADatabase.Pages.GamePages.BoxScoreTable(side, lines)" />
+            }
+        </div>
+    </div>
+}
+<p class="text-muted small">
+    Tick "Played" for everyone who played (typing a stat ticks it automatically). PTS is calculated from the made shots (2 × FGM + 3PM + FTM), and the team score from the players' points.
+</p>

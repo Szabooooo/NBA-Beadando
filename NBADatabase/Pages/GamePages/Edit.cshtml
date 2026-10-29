@@ -9,55 +9,19 @@
 
 <h4>Game</h4>
 <hr />
-<div class="row">
-    <div class="col-md-6">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Game.Id" />
-            <div class="form-group mb-2">
-                <label asp-for="Game.GameDate" class="control-label"></label>
-                <input asp-for="Game.GameDate" type="date" class="form-control" />
-                <span asp-validation-for="Game.GameDate" class="text-danger"></span>
-            </div>
-            <div class="row">
-                <div class="form-group col-8 mb-2">
-                    <span class="text-danger">*</span>
-                    <label asp-for="Game.HomeTeamId" class="control-label"></label>
-                    <select asp-for="Game.HomeTeamId" asp-items="Model.TeamOptions" class="form-select">
-                        <option value="">-- Select a team --</option>
-                    </select>
-                    <span asp-validation-for="Game.HomeTeamId" class="text-danger"></span>
-                </div>
-                <div class="form-group col-4 mb-2">
-                    <label asp-for="Game.HomePoints" class="control-label"></label>
-                    <input asp-for="Game.HomePoints" class="form-control" min="0" />
-                    <span asp-validation-for="Game.HomePoints" class="text-danger"></span>
-                </div>
-                <div class="form-group col-8 mb-2">
-                    <span class="text-danger">*</span>
-                    <label asp-for="Game.AwayTeamId" class="control-label"></label>
-                    <select asp-for="Game.AwayTeamId" asp-items="Model.TeamOptions" class="form-select">
-                        <option value="">-- Select a team --</option>
-                    </select>
-                    <span asp-validation-for="Game.AwayTeamId" class="text-danger"></span>
-                </div>
-                <div class="form-group col-4 mb-2">
-                    <label asp-for="Game.AwayPoints" class="control-label"></label>
-                    <input asp-for="Game.AwayPoints" class="form-control" min="0" />
-                    <span asp-validation-for="Game.AwayPoints" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<form method="post">
+    <input type="hidden" asp-for="Game.Id" />
+    <partial name="_GameForm" model="Model" />
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
     </div>
-</div>
+</form>
 
-<div>
+<div class="mt-2">
     <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/game-form.js" asp-append-version="true"></script>
 }

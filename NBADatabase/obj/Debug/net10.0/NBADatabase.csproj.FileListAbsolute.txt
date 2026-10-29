@@ -137,7 +137,6 @@ C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\rjsmcs
 C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\scopedcss\bundle\NBADatabase.styles.css
 C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\scopedcss\projectbundle\NBADatabase.bundle.scp.css
-C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\compressed\tmg36duyxg-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\compressed\3bspe88dw9-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\compressed\k76rlone7c-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\compressed\5ke5aque8k-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -229,3 +228,6 @@ C:\Users\msaso\AppData\Local\Temp\claude\C--Users-msaso-Desktop-Kodok-C--Beadand
 C:\Users\msaso\AppData\Local\Temp\claude\C--Users-msaso-Desktop-Kodok-C--BeadandoNBA-NBADatabase\887e9289-c6f7-495a-b95f-98e580adc5b6\scratchpad\build\NBADatabase.runtimeconfig.json
 C:\Users\msaso\AppData\Local\Temp\claude\C--Users-msaso-Desktop-Kodok-C--BeadandoNBA-NBADatabase\887e9289-c6f7-495a-b95f-98e580adc5b6\scratchpad\build\NBADatabase.dll
 C:\Users\msaso\AppData\Local\Temp\claude\C--Users-msaso-Desktop-Kodok-C--BeadandoNBA-NBADatabase\887e9289-c6f7-495a-b95f-98e580adc5b6\scratchpad\build\NBADatabase.pdb
+C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\compressed\tmg36duyxg-{0}-hvgnt3xip4-hvgnt3xip4.gz
+C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\compressed\e7n7xlyvmf-{0}-9hplkgafd1-9hplkgafd1.gz
+C:\Users\msaso\Desktop\Kodok\C#\BeadandoNBA\NBADatabase\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

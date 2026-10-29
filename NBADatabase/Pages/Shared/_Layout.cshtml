@@ -3,17 +3,28 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - NBADatabase</title>
+    <title>@ViewData["Title"] - NBA Database</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/NBADatabase.styles.css" asp-append-version="true" />
 </head>
+@{
+    // Highlights the menu item of the section the current page belongs to
+    var currentPage = ViewContext.RouteData.Values["page"]?.ToString() ?? "";
+    string Active(string folder) => currentPage.StartsWith(folder) ? "active" : "";
+}
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-dark app-navbar mb-4">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">NBADatabase</a>
+                <a class="navbar-brand d-flex align-items-center gap-2" asp-area="" asp-page="/Index">
+                    <svg class="brand-ball" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10.5" />
+                        <path d="M1.5 12h21M12 1.5v21M4.6 4.6c3 2.6 3 12.2 0 14.8M19.4 4.6c-3 2.6-3 12.2 0 14.8" />
+                    </svg>
+                    <span>NBA <strong>Database</strong></span>
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,13 +32,16 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/TeamPages/Index">Teams</a>
+                            <a class="nav-link @(currentPage == "/Index" ? "active" : "")" asp-area="" asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/PlayerPages/Index">Players</a>
+                            <a class="nav-link @Active("/TeamPages")" asp-area="" asp-page="/TeamPages/Index">Teams</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/GamePages/Index">Games</a>
+                            <a class="nav-link @Active("/PlayerPages")" asp-area="" asp-page="/PlayerPages/Index">Players</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Active("/GamePages")" asp-area="" asp-page="/GamePages/Index">Games</a>
                         </li>
                     </ul>
                 </div>
@@ -35,7 +49,7 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-4 @(currentPage == "/Index" ? "" : "page-panel")">
             @RenderBody()
         </main>
     </div>

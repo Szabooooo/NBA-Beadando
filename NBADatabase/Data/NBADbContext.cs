@@ -22,10 +22,19 @@ namespace NBADatabase.Data
                 .WithMany()
                 .HasForeignKey(g => g.AwayTeamId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            // Box score lines are deleted together with their game or player,
+            // but a team can't be deleted while box score lines still point to it
+            modelBuilder.Entity<PlayerGameStat>()
+                .HasOne(s => s.Team)
+                .WithMany()
+                .HasForeignKey(s => s.TeamId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
 
         public DbSet<Game> Games => Set<Game>();
         public DbSet<Team> Team => Set<Team>();
         public DbSet<Player> Players => Set<Player>();
+        public DbSet<PlayerGameStat> PlayerStats => Set<PlayerGameStat>();
     }
 }

@@ -1,24 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using NBADatabase.Models;
 using NBADatabase.Data;
 
 namespace NBADatabase.Pages.GamePages;
 
-public class EditModel : PageModel
+public class EditModel : GameFormModel
 {
-    private readonly NBADbContext _context;
-    public SelectList TeamOptions { get; set; } = default!;
-
-    public EditModel(NBADbContext context)
+    public EditModel(NBADbContext context) : base(context)
     {
-        _context = context;
     }
-
-    [BindProperty]
-    public Game Game { get; set; } = default!;
 
     public async Task<IActionResult> OnGetAsync(int? id)
     {
@@ -27,53 +17,56 @@ public class EditModel : PageModel
             return NotFound();
         }
 
-        var game = await _context.Games.FirstOrDefaultAsync(m => m.Id == id);
+        var game = await _context.Games
+            .Include(g => g.PlayerStats).ThenInclude(s => s.Player)
+            .FirstOrDefaultAsync(m => m.Id == id);
         if (game is null)
         {
             return NotFound();
         }
         Game = game;
+        HomeLines = await BuildLinesAsync(game.HomeTeamId, game.PlayerStats);
+        AwayLines = await BuildLinesAsync(game.AwayTeamId, game.PlayerStats);
         await LoadTeamsAsync();
         return Page();
     }
 
-    private async Task LoadTeamsAsync()
-    {
-        var teams = await _context.Team.OrderBy(x => x.Name).ToListAsync();
-        TeamOptions = new SelectList(teams, "Id", "Name");
-    }
-
     public async Task<IActionResult> OnPostAsync()
     {
+        IgnoreUnplayedRows();
         if (!ModelState.IsValid)
         {
-            await LoadTeamsAsync();
+            await RestoreFormAsync();
             return Page();
         }
 
-        _context.Attach(Game).State = EntityState.Modified;
+        var existing = await _context.Games
+            .Include(g => g.PlayerStats)
+            .FirstOrDefaultAsync(g => g.Id == Game.Id);
+        if (existing is null)
+        {
+            return NotFound();
+        }
 
-        try
-        {
-            await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!GameExists(Game.Id))
-            {
-                return NotFound();
-            }
-            else
-            {
-                throw;
-            }
-        }
+        // Everyone in the old or the new version of the game needs their stats recalculated
+        var lines = PlayedLines();
+        var playerIds = existing.PlayerStats.Select(s => s.PlayerId).Concat(lines.Select(s => s.PlayerId)).ToList();
+        var teamIds = new[] { existing.HomeTeamId, existing.AwayTeamId, Game.HomeTeamId, Game.AwayTeamId };
+
+        existing.GameDate = Game.GameDate;
+        existing.HomeTeamId = Game.HomeTeamId;
+        existing.HomePoints = Game.HomePoints;
+        existing.AwayTeamId = Game.AwayTeamId;
+        existing.AwayPoints = Game.AwayPoints;
+
+        // The box score is replaced with the rows from the form
+        _context.PlayerStats.RemoveRange(existing.PlayerStats);
+        _context.PlayerStats.AddRange(lines);
+        await _context.SaveChangesAsync();
+
+        await StatsCalculator.RecalculatePlayersAsync(_context, playerIds);
+        await StatsCalculator.RecalculateTeamsAsync(_context, teamIds);
 
         return RedirectToPage("./Index");
-    }
-
-    private bool GameExists(int id)
-    {
-        return _context.Games.Any(e => e.Id == id);
     }
 }

@@ -1,31 +1,145 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home";
+    string Format(double value) => Model.SelectedStat.Key == "plusminus" && value > 0 ? $"+{value:0.0}" : value.ToString("0.0");
+    var maxAbs = Model.Leaders.Count == 0 ? 1 : Model.Leaders.Max(l => Math.Abs(l.Value));
+    int BarWidth(double value) => (int)Math.Round(Math.Abs(value) / maxAbs * 100);
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to the NBA database!</h1>
-</div>
+<section class="hero mb-4">
+    <h1>NBA Database</h1>
+    <p>Teams, rosters, box scores and the league leaders, all in one place.</p>
+    <div class="d-flex flex-wrap gap-2">
+        <a class="hero-stat" asp-page="/TeamPages/Index"><strong>@Model.Teams.Count</strong><span>Teams</span></a>
+        <a class="hero-stat" asp-page="/PlayerPages/Index"><strong>@Model.PlayerCount</strong><span>Players</span></a>
+        <a class="hero-stat" asp-page="/GamePages/Index"><strong>@Model.GameCount</strong><span>Games</span></a>
+    </div>
+</section>
 
+<div class="row g-4">
+    <div class="col-lg-7">
+        <section class="section-card">
+            <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-3">
+                <div>
+                    <div class="section-title">League leaders</div>
+                    <h2 class="h4 mb-0">@Model.SelectedStat.Label per game</h2>
+                </div>
+            </div>
+            <nav class="stat-filter mb-3" aria-label="Leaders stat">
+                @foreach (var stat in IndexModel.Stats)
+                {
+                    <a asp-page="/Index" asp-route-stat="@stat.Key"
+                       class="@(stat.Key == Model.SelectedStat.Key ? "active" : "")"
+                       aria-current="@(stat.Key == Model.SelectedStat.Key ? "true" : null)">@stat.Label</a>
+                }
+            </nav>
 
-
-    <table class="table table-striped mt-4">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>City</th>
-                <th>Record</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach(var team in Model.Teams)
+            @if (Model.Leaders.Count == 0)
             {
-                <tr>
-                    <td>@team.Name</td>
-                    <td>@team.City</td>
-                    <td>@team.PCT</td>
-                </tr>
+                <p class="text-muted mb-0">No @Model.SelectedStat.Label.ToLower() recorded yet. Add a game with a box score to see the leaders.</p>
             }
-        </tbody>
-    </table>
+            else
+            {
+                var top = Model.Leaders[0];
+                <div class="leader-top">
+                    <span class="rank rank-1">1</span>
+                    <div class="leader-info">
+                        <a class="leader-name" asp-page="/PlayerPages/Details" asp-route-id="@top.Player.Id">@top.Player.Name</a>
+                        <div class="leader-team">
+                            @top.Player.Team?.City @top.Player.Team?.Name · @top.GamesPlayed GP
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <div class="leader-value">@Format(top.Value)</div>
+                        <span class="leader-unit">@Model.SelectedStat.Unit</span>
+                    </div>
+                </div>
+
+                @foreach (var leader in Model.Leaders.Skip(1))
+                {
+                    <div class="leader-row">
+                        <span class="rank rank-@leader.Rank">@leader.Rank</span>
+                        <div class="leader-info">
+                            <a class="leader-name" asp-page="/PlayerPages/Details" asp-route-id="@leader.Player.Id">@leader.Player.Name</a>
+                            <span class="leader-team">· @leader.Player.Team?.Name · @leader.GamesPlayed GP</span>
+                            <div class="leader-bar">
+                                <div class="@(leader.Value < 0 ? "negative" : "")" style="width: @BarWidth(leader.Value)%"></div>
+                            </div>
+                        </div>
+                        <div class="leader-value">
+                            @Format(leader.Value)
+                            <span class="leader-unit">@Model.SelectedStat.Unit</span>
+                        </div>
+                    </div>
+                }
+            }
+        </section>
+    </div>
+
+    <div class="col-lg-5 d-flex flex-column gap-4">
+        <section class="section-card">
+            <div class="section-title">Standings</div>
+            <h2 class="h4">Team records</h2>
+            @if (Model.Teams.Count == 0)
+            {
+                <p class="text-muted mb-0">No teams yet. <a asp-page="/TeamPages/Create">Create one</a>.</p>
+            }
+            else
+            {
+                <table class="table table-sm standings mb-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Team</th>
+                            <th class="text-end">W</th>
+                            <th class="text-end">L</th>
+                            <th class="text-end">PCT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @for (int i = 0; i < Model.Teams.Count; i++)
+                    {
+                        var team = Model.Teams[i];
+                        <tr>
+                            <td class="text-muted">@(i + 1)</td>
+                            <td><a asp-page="/TeamPages/Details" asp-route-id="@team.Id">@team.City @team.Name</a></td>
+                            <td class="text-end">@team.Wins</td>
+                            <td class="text-end">@team.Losses</td>
+                            <td class="text-end fw-semibold">@team.PCT.ToString("0.000")</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            }
+        </section>
+
+        <section class="section-card">
+            <div class="section-title">Scores</div>
+            <h2 class="h4">Recent games</h2>
+            @if (Model.RecentGames.Count == 0)
+            {
+                <p class="text-muted mb-0">No games yet. <a asp-page="/GamePages/Create">Add one</a>.</p>
+            }
+            else
+            {
+                <table class="table table-sm mb-0">
+                    <tbody>
+                    @foreach (var game in Model.RecentGames)
+                    {
+                        var homeWon = game.HomePoints > game.AwayPoints;
+                        <tr>
+                            <td class="text-muted small">@game.GameDate</td>
+                            <td class="@(homeWon ? "" : "fw-bold")">@game.AwayTeam?.Name</td>
+                            <td class="text-center text-nowrap">
+                                <a asp-page="/GamePages/Details" asp-route-id="@game.Id">@game.AwayPoints – @game.HomePoints</a>
+                            </td>
+                            <td class="text-end @(homeWon ? "fw-bold" : "")">@@ @game.HomeTeam?.Name</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            }
+        </section>
+    </div>
+</div>

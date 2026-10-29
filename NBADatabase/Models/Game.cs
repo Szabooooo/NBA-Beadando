@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc;
+using NBADatabase.Infrastructure;
 
 namespace NBADatabase.Models
 {
@@ -11,15 +13,17 @@ namespace NBADatabase.Models
         public int HomeTeamId { get; set; }
         public Team? HomeTeam { get; set; }
 
-        [Range(0, int.MaxValue, ErrorMessage = "Points can't be negative!"), Display(Name = "Home points")]
+        [Range(0, int.MaxValue, ErrorMessage = "Points can't be negative!"), Display(Name = "Home points"), ModelBinder(typeof(EmptyAsZeroModelBinder))]
         public int HomePoints { get; set; }
         
         [Required(ErrorMessage = "Away team must be selected!"), Display(Name = "Away team")]
         public int AwayTeamId { get; set; }
         public Team? AwayTeam { get; set; }
 
-        [Range(0, int.MaxValue, ErrorMessage = "Points can't be negative!"), Display(Name = "Away points")]
+        [Range(0, int.MaxValue, ErrorMessage = "Points can't be negative!"), Display(Name = "Away points"), ModelBinder(typeof(EmptyAsZeroModelBinder))]
         public int AwayPoints { get; set; }
+
+        public List<PlayerGameStat> PlayerStats { get; set; } = new();
 
         [Display(Name = "Date")]
         public DateOnly GameDate {  get; set; } = DateOnly.FromDateTime(DateTime.Today);

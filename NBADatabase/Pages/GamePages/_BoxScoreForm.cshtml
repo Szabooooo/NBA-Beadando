@@ -1,0 +1,65 @@
+@model NBADatabase.Pages.GamePages.BoxScoreTable
+@using NBADatabase.Models
+
+@{
+    // Field name of a stat input, e.g. HomeLines[2].Points
+    string Field(int i, string stat) => $"{Model.Side}Lines[{i}].{stat}";
+    var stats = new (string Property, string Label)[]
+    {
+        ("Points", "PTS"), ("Rebounds", "REB"), ("Assists", "AST"), ("Steals", "STL"), ("Blocks", "BLK"),
+        ("FieldGoalsMade", "FGM"), ("FieldGoalsAttempted", "FGA"), ("ThreePointersMade", "3PM"),
+        ("ThreePointersAttempted", "3PA"), ("FreeThrowsMade", "FTM"), ("FreeThrowsAttempted", "FTA"), ("PlusMinus", "+/-")
+    };
+    int Value(PlayerGameStat line, string property) => (int)typeof(PlayerGameStat).GetProperty(property)!.GetValue(line)!;
+}
+
+@if (Model.Lines.Count == 0)
+{
+    <p class="text-muted">This team has no players yet.</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-sm align-middle box-score">
+            <thead>
+                <tr>
+                    <th title="Did the player play in this game?">Played</th>
+                    <th>Player</th>
+                    @foreach (var stat in stats)
+                    {
+                        <th>@stat.Label</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+            @for (int i = 0; i < Model.Lines.Count; i++)
+            {
+                var line = Model.Lines[i];
+                <tr>
+                    <td>
+                        <input type="hidden" name="@Field(i, "PlayerId")" value="@line.PlayerId" />
+                        <input type="checkbox" class="form-check-input played" name="@Field(i, "Played")" value="true" checked="@line.Played" />
+                        <input type="hidden" name="@Field(i, "Played")" value="false" />
+                    </td>
+                    <td class="text-nowrap">@line.Player?.Name</td>
+                    @foreach (var stat in stats)
+                    {
+                        var value = Value(line, stat.Property);
+                        <td>
+                            <input type="number" step="1" min="@(stat.Property == "PlusMinus" ? "-100" : "0")"
+                                   class="form-control form-control-sm stat @(stat.Property == "Points" ? "points" : "")"
+                                   name="@Field(i, stat.Property)" value="@(value == 0 ? "" : value.ToString())" placeholder="0" />
+                        </td>
+                    }
+                </tr>
+                @foreach (var error in ViewData.ModelState
+                    .Where(e => e.Key == $"{Model.Side}Lines[{i}]" || e.Key.StartsWith($"{Model.Side}Lines[{i}]."))
+                    .SelectMany(e => e.Value!.Errors))
+                {
+                    <tr><td></td><td colspan="@(stats.Length + 1)" class="text-danger small">@line.Player?.Name: @error.ErrorMessage</td></tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+}

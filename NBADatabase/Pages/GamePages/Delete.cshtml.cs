@@ -25,7 +25,11 @@ public class DeleteModel : PageModel
             return NotFound();
         }
 
-        var game = await _context.Games.Include(g => g.HomeTeam).Include(g => g.AwayTeam).FirstOrDefaultAsync(m => m.Id == id);
+        var game = await _context.Games
+            .Include(g => g.HomeTeam)
+            .Include(g => g.AwayTeam)
+            .Include(g => g.PlayerStats).ThenInclude(s => s.Player)
+            .FirstOrDefaultAsync(m => m.Id == id);
         if (game is null)
         {
             return NotFound();
@@ -45,12 +49,17 @@ public class DeleteModel : PageModel
             return NotFound();
         }
 
-        var game = await _context.Games.FindAsync(id);
+        var game = await _context.Games.Include(g => g.PlayerStats).FirstOrDefaultAsync(g => g.Id == id);
         if (game != null)
         {
-            Game = game;
-            _context.Games.Remove(Game);
+            var playerIds = game.PlayerStats.Select(s => s.PlayerId).ToList();
+
+            // The box score lines are deleted with the game (cascade delete)
+            _context.Games.Remove(game);
             await _context.SaveChangesAsync();
+
+            await StatsCalculator.RecalculatePlayersAsync(_context, playerIds);
+            await StatsCalculator.RecalculateTeamsAsync(_context, new[] { game.HomeTeamId, game.AwayTeamId });
         }
 
         return RedirectToPage("./Index");

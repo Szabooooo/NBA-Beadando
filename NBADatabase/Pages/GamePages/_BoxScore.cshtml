@@ -1,0 +1,62 @@
+@model IEnumerable<NBADatabase.Models.PlayerGameStat>
+
+@{
+    var lines = Model.OrderByDescending(s => s.Points).ToList();
+}
+
+@if (lines.Count == 0)
+{
+    <p class="text-muted">No box score recorded.</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>PTS</th>
+                    <th>REB</th>
+                    <th>AST</th>
+                    <th>STL</th>
+                    <th>BLK</th>
+                    <th>FG</th>
+                    <th>3P</th>
+                    <th>FT</th>
+                    <th>+/-</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var s in lines)
+            {
+                <tr>
+                    <td><a asp-page="/PlayerPages/Details" asp-route-id="@s.PlayerId">@s.Player?.Name</a></td>
+                    <td>@s.Points</td>
+                    <td>@s.Rebounds</td>
+                    <td>@s.Assists</td>
+                    <td>@s.Steals</td>
+                    <td>@s.Blocks</td>
+                    <td>@s.FieldGoalsMade-@s.FieldGoalsAttempted</td>
+                    <td>@s.ThreePointersMade-@s.ThreePointersAttempted</td>
+                    <td>@s.FreeThrowsMade-@s.FreeThrowsAttempted</td>
+                    <td>@s.PlusMinus</td>
+                </tr>
+            }
+            </tbody>
+            <tfoot class="fw-bold">
+                <tr>
+                    <td>Total</td>
+                    <td>@lines.Sum(s => s.Points)</td>
+                    <td>@lines.Sum(s => s.Rebounds)</td>
+                    <td>@lines.Sum(s => s.Assists)</td>
+                    <td>@lines.Sum(s => s.Steals)</td>
+                    <td>@lines.Sum(s => s.Blocks)</td>
+                    <td>@lines.Sum(s => s.FieldGoalsMade)-@lines.Sum(s => s.FieldGoalsAttempted)</td>
+                    <td>@lines.Sum(s => s.ThreePointersMade)-@lines.Sum(s => s.ThreePointersAttempted)</td>
+                    <td>@lines.Sum(s => s.FreeThrowsMade)-@lines.Sum(s => s.FreeThrowsAttempted)</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+}

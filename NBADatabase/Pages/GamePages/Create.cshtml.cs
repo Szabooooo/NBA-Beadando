@@ -1,20 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using NBADatabase.Models;
 using NBADatabase.Data;
 
 namespace NBADatabase.Pages.GamePages;
 
-public class CreateModel : PageModel
+public class CreateModel : GameFormModel
 {
-    private readonly NBADbContext _context;
-    public SelectList TeamOptions { get; set; } = default!;
-
-    public CreateModel(NBADbContext context)
+    public CreateModel(NBADbContext context) : base(context)
     {
-        _context = context;
     }
 
     public async Task<IActionResult> OnGetAsync()
@@ -23,25 +15,22 @@ public class CreateModel : PageModel
         return Page();
     }
 
-    [BindProperty]
-    public Game Game { get; set; } = new();
-
-    private async Task LoadTeamsAsync()
-    {
-        var teams = await _context.Team.OrderBy(x => x.Name).ToListAsync();
-        TeamOptions = new SelectList(teams, "Id", "Name");
-    }
-
     public async Task<IActionResult> OnPostAsync()
     {
+        IgnoreUnplayedRows();
         if (!ModelState.IsValid)
         {
-            await LoadTeamsAsync();
+            await RestoreFormAsync();
             return Page();
         }
 
+        var lines = PlayedLines();
+        Game.PlayerStats = lines;
         _context.Games.Add(Game);
         await _context.SaveChangesAsync();
+
+        await StatsCalculator.RecalculatePlayersAsync(_context, lines.Select(s => s.PlayerId));
+        await StatsCalculator.RecalculateTeamsAsync(_context, new[] { Game.HomeTeamId, Game.AwayTeamId });
 
         return RedirectToPage("./Index");
     }

@@ -19,3 +19,9 @@
     <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Winner)</dt>
     <dd class="col-sm-10">@Html.DisplayFor(model => model.Winner)</dd>
 </dl>
+
+<h5>@Model.HomeTeam?.Name</h5>
+<partial name="_BoxScore" model="Model.PlayerStats.Where(s => s.TeamId == Model.HomeTeamId)" />
+
+<h5>@Model.AwayTeam?.Name</h5>
+<partial name="_BoxScore" model="Model.PlayerStats.Where(s => s.TeamId == Model.AwayTeamId)" />

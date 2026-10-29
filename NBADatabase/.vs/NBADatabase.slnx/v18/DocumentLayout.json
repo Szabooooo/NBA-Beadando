@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\msaso\\Desktop\\Kodok\\C#\\BeadandoNBA\\NBADatabase\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C9BE1A88-945D-A208-C8BF-D03B6A1D0048}|NBADatabase.csproj|c:\\users\\msaso\\desktop\\kodok\\c#\\beadandonba\\nbadatabase\\pages\\playerpages\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C9BE1A88-945D-A208-C8BF-D03B6A1D0048}|NBADatabase.csproj|solutionrelative:pages\\playerpages\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C9BE1A88-945D-A208-C8BF-D03B6A1D0048}|NBADatabase.csproj|c:\\users\\msaso\\desktop\\kodok\\c#\\beadandonba\\nbadatabase\\pages\\teampages\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9BE1A88-945D-A208-C8BF-D03B6A1D0048}|NBADatabase.csproj|solutionrelative:pages\\teampages\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C9BE1A88-945D-A208-C8BF-D03B6A1D0048}|NBADatabase.csproj|c:\\users\\msaso\\desktop\\kodok\\c#\\beadandonba\\nbadatabase\\pages\\playerpages\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9BE1A88-945D-A208-C8BF-D03B6A1D0048}|NBADatabase.csproj|solutionrelative:pages\\playerpages\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9BE1A88-945D-A208-C8BF-D03B6A1D0048}|NBADatabase.csproj|c:\\users\\msaso\\desktop\\kodok\\c#\\beadandonba\\nbadatabase\\pages\\teampages\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C9BE1A88-945D-A208-C8BF-D03B6A1D0048}|NBADatabase.csproj|solutionrelative:pages\\teampages\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C9BE1A88-945D-A208-C8BF-D03B6A1D0048}|NBADatabase.csproj|c:\\users\\msaso\\desktop\\kodok\\c#\\beadandonba\\nbadatabase\\pages\\playerpages\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9BE1A88-945D-A208-C8BF-D03B6A1D0048}|NBADatabase.csproj|solutionrelative:pages\\playerpages\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C9BE1A88-945D-A208-C8BF-D03B6A1D0048}|NBADatabase.csproj|c:\\users\\msaso\\desktop\\kodok\\c#\\beadandonba\\nbadatabase\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -34,17 +34,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\msaso\\Desktop\\Kodok\\C#\\BeadandoNBA\\NBADatabase\\Pages\\PlayerPages\\Create.cshtml",
               "RelativeDocumentMoniker": "Pages\\PlayerPages\\Create.cshtml",
               "ToolTip": "C:\\Users\\msaso\\Desktop\\Kodok\\C#\\BeadandoNBA\\NBADatabase\\Pages\\PlayerPages\\Create.cshtml",
               "RelativeToolTip": "Pages\\PlayerPages\\Create.cshtml",
-              "ViewState": "AgIAABkAAAAAAAAAAAAqwBcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAowBcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-10-29T08:04:28.297Z",
               "EditorCaption": ""
@@ -57,9 +57,10 @@
               "RelativeDocumentMoniker": "Pages\\PlayerPages\\Create.cshtml.cs",
               "ToolTip": "C:\\Users\\msaso\\Desktop\\Kodok\\C#\\BeadandoNBA\\NBADatabase\\Pages\\PlayerPages\\Create.cshtml.cs",
               "RelativeToolTip": "Pages\\PlayerPages\\Create.cshtml.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAkwCkAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwCkAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-29T08:04:34.146Z"
+              "WhenOpened": "2026-10-29T08:04:34.146Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -75,7 +76,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\msaso\\Desktop\\Kodok\\C#\\BeadandoNBA\\NBADatabase\\Pages\\TeamPages\\Create.cshtml",
               "RelativeDocumentMoniker": "Pages\\TeamPages\\Create.cshtml",
@@ -83,7 +84,8 @@
               "RelativeToolTip": "Pages\\TeamPages\\Create.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-28T21:26:27.469Z"
+              "WhenOpened": "2026-10-28T21:26:27.469Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
