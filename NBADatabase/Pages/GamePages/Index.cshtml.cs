@@ -19,6 +19,8 @@ public class IndexModel : PageModel
 
     public async Task OnGetAsync()
     {
-        Game = await _context.Games.ToListAsync();
+        Game = await _context.Games.Include(g => g.HomeTeam).Include(g => g.AwayTeam)
+            .OrderByDescending(g => g.GameDate)
+            .ToListAsync();
     }
 }

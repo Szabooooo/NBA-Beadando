@@ -2,7 +2,7 @@
 @model NBADatabase.Pages.TeamPages.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create team";
 }
 
 <h1>Create</h1>
@@ -13,16 +13,29 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <span class="text-danger">*</span>
                 <label asp-for="Team.Name" class="control-label"></label>
                 <input asp-for="Team.Name" class="form-control" aria-required="true"/>
                 <span asp-validation-for="Team.Name" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-2">
+                <span class="text-danger">*</span>
                 <label asp-for="Team.City" class="control-label"></label>
                 <input asp-for="Team.City" class="form-control" />
                 <span asp-validation-for="Team.City" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="form-group col-6 mb-2">
+                    <label asp-for="Team.Wins" class="control-label"></label>
+                    <input asp-for="Team.Wins" class="form-control" min="0" />
+                    <span asp-validation-for="Team.Wins" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6 mb-2">
+                    <label asp-for="Team.Losses" class="control-label"></label>
+                    <input asp-for="Team.Losses" class="form-control" min="0" />
+                    <span asp-validation-for="Team.Losses" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

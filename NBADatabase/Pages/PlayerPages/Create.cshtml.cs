@@ -23,7 +23,7 @@ public class CreateModel : PageModel
     }
 
     [BindProperty]
-    public Player Player { get; set; } = default!;
+    public Player Player { get; set; } = new();
 
     private async Task LoadTeamsAsync()
     {

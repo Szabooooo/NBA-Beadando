@@ -1,0 +1,21 @@
+@model NBADatabase.Models.Game
+
+<dl class="row">
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.GameDate)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.GameDate)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.HomeTeamId)</dt>
+    <dd class="col-sm-10">
+        <a asp-page="/TeamPages/Details" asp-route-id="@Model.HomeTeamId">@Model.HomeTeam?.Name</a>
+        (@Model.HomePoints)
+    </dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.AwayTeamId)</dt>
+    <dd class="col-sm-10">
+        <a asp-page="/TeamPages/Details" asp-route-id="@Model.AwayTeamId">@Model.AwayTeam?.Name</a>
+        (@Model.AwayPoints)
+    </dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Winner)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Winner)</dd>
+</dl>

@@ -21,7 +21,7 @@ public class CreateModel : PageModel
     }
 
     [BindProperty]
-    public Team Team { get; set; } = default!;
+    public Team Team { get; set; } = new();
 
     public async Task<IActionResult> OnPostAsync()
     {

@@ -23,7 +23,7 @@ public class DetailsModel : PageModel
             return NotFound();
         }
 
-        var game = await _context.Games.FirstOrDefaultAsync(m => m.Id == id);
+        var game = await _context.Games.Include(g => g.HomeTeam).Include(g => g.AwayTeam).FirstOrDefaultAsync(m => m.Id == id);
         if (game is null)
         {
             return NotFound();

@@ -1,0 +1,44 @@
+@model NBADatabase.Models.Player
+
+<dl class="row">
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Name)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Name)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.TeamId)</dt>
+    <dd class="col-sm-10">
+        @if (Model.Team is not null)
+        {
+            <a asp-page="/TeamPages/Details" asp-route-id="@Model.TeamId">@Model.Team.City @Model.Team.Name</a>
+        }
+    </dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Ppg)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Ppg)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Rpg)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Rpg)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Apg)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Apg)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Spg)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Spg)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Bpg)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Bpg)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Fgp)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Fgp)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Tpp)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Tpp)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Ftp)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Ftp)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Tsp)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Tsp)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Bpm)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Bpm)</dd>
+</dl>

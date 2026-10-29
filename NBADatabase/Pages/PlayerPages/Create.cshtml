@@ -2,7 +2,7 @@
 @model NBADatabase.Pages.PlayerPages.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create player";
 }
 
 <h1>Create</h1>
@@ -10,23 +10,75 @@
 <h4>Player</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form method="post">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-2">
+                <span class="text-danger">*</span>
                 <label asp-for="Player.TeamId" class="control-label"></label>
                 <select asp-for="Player.TeamId" asp-items="Model.TeamOptions" class="form-select">
                     <option value="">-- Select a team --</option>
                 </select>
                 <span asp-validation-for="Player.TeamId" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <span class="text-danger">*</span>
                 <label asp-for="Player.Name" class="control-label"></label>
                 <input asp-for="Player.Name" class="form-control" aria-required="true"/>
                 <span asp-validation-for="Player.Name" class="text-danger"></span>
             </div>
-            
+            <div class="row">
+                <div class="form-group col-6 mb-2">
+                    <label asp-for="Player.Ppg" class="control-label"></label>
+                    <input asp-for="Player.Ppg" class="form-control" />
+                    <span asp-validation-for="Player.Ppg" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6 mb-2">
+                    <label asp-for="Player.Rpg" class="control-label"></label>
+                    <input asp-for="Player.Rpg" class="form-control" />
+                    <span asp-validation-for="Player.Rpg" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6 mb-2">
+                    <label asp-for="Player.Apg" class="control-label"></label>
+                    <input asp-for="Player.Apg" class="form-control" />
+                    <span asp-validation-for="Player.Apg" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6 mb-2">
+                    <label asp-for="Player.Spg" class="control-label"></label>
+                    <input asp-for="Player.Spg" class="form-control" />
+                    <span asp-validation-for="Player.Spg" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6 mb-2">
+                    <label asp-for="Player.Bpg" class="control-label"></label>
+                    <input asp-for="Player.Bpg" class="form-control" />
+                    <span asp-validation-for="Player.Bpg" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6 mb-2">
+                    <label asp-for="Player.Fgp" class="control-label"></label>
+                    <input asp-for="Player.Fgp" class="form-control" />
+                    <span asp-validation-for="Player.Fgp" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6 mb-2">
+                    <label asp-for="Player.Tpp" class="control-label"></label>
+                    <input asp-for="Player.Tpp" class="form-control" />
+                    <span asp-validation-for="Player.Tpp" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6 mb-2">
+                    <label asp-for="Player.Ftp" class="control-label"></label>
+                    <input asp-for="Player.Ftp" class="form-control" />
+                    <span asp-validation-for="Player.Ftp" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6 mb-2">
+                    <label asp-for="Player.Tsp" class="control-label"></label>
+                    <input asp-for="Player.Tsp" class="form-control" />
+                    <span asp-validation-for="Player.Tsp" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6 mb-2">
+                    <label asp-for="Player.Bpm" class="control-label"></label>
+                    <input asp-for="Player.Bpm" class="form-control" />
+                    <span asp-validation-for="Player.Bpm" class="text-danger"></span>
+                </div>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

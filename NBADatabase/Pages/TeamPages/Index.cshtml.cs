@@ -19,6 +19,8 @@ public class IndexModel : PageModel
 
     public async Task OnGetAsync()
     {
-        Team = await _context.Team.ToListAsync();
+        var teams = await _context.Team.Include(t => t.Players).ToListAsync();
+        // PCT is not stored in the database, so the standings are sorted in memory
+        Team = teams.OrderByDescending(t => t.PCT).ThenBy(t => t.Name).ToList();
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NBADatabase.Models;
 using NBADatabase.Data;
@@ -9,6 +10,7 @@ namespace NBADatabase.Pages.PlayerPages;
 public class EditModel : PageModel
 {
     private readonly NBADbContext _context;
+    public SelectList TeamOptions { get; set; } = default!;
 
     public EditModel(NBADbContext context)
     {
@@ -31,15 +33,21 @@ public class EditModel : PageModel
             return NotFound();
         }
         Player = player;
+        await LoadTeamsAsync();
         return Page();
     }
 
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see https://aka.ms/RazorPagesCRUD.
+    private async Task LoadTeamsAsync()
+    {
+        var teams = await _context.Team.OrderBy(x => x.Name).ToListAsync();
+        TeamOptions = new SelectList(teams, "Id", "Name");
+    }
+
     public async Task<IActionResult> OnPostAsync()
     {
         if (!ModelState.IsValid)
         {
+            await LoadTeamsAsync();
             return Page();
         }
 

@@ -2,10 +2,10 @@
 @model NBADatabase.Pages.PlayerPages.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Players";
 }
 
-<h1>Index</h1>
+<h1>Players</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -13,84 +13,30 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Player[0].TeamId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Player[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Player[0].Ppg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Player[0].Rpg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Player[0].Apg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Player[0].Spg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Player[0].Bpg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Player[0].Fgp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Player[0].Tpp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Player[0].Ftp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Player[0].Tsp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Player[0].Bpm)
-            </th>
+            <th>@Html.DisplayNameFor(model => model.Player[0].Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Player[0].TeamId)</th>
+            <th>@Html.DisplayNameFor(model => model.Player[0].Ppg)</th>
+            <th>@Html.DisplayNameFor(model => model.Player[0].Rpg)</th>
+            <th>@Html.DisplayNameFor(model => model.Player[0].Apg)</th>
+            <th>@Html.DisplayNameFor(model => model.Player[0].Spg)</th>
+            <th>@Html.DisplayNameFor(model => model.Player[0].Bpg)</th>
+            <th>@Html.DisplayNameFor(model => model.Player[0].Tsp)</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Player) {
         <tr>
+            <td>@Html.DisplayFor(model => item.Name)</td>
             <td>
-                @Html.DisplayFor(model => item.Team!.Name)
+                <a asp-page="/TeamPages/Details" asp-route-id="@item.TeamId">@item.Team?.Name</a>
             </td>
-            <td>
-                @Html.DisplayFor(model => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Ppg)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Rpg)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Apg)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Spg)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Bpg)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Fgp)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Tpp)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Ftp)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Tsp)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Bpm)
-            </td>
+            <td>@Html.DisplayFor(model => item.Ppg)</td>
+            <td>@Html.DisplayFor(model => item.Rpg)</td>
+            <td>@Html.DisplayFor(model => item.Apg)</td>
+            <td>@Html.DisplayFor(model => item.Spg)</td>
+            <td>@Html.DisplayFor(model => item.Bpg)</td>
+            <td>@Html.DisplayFor(model => item.Tsp)</td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |

@@ -15,6 +15,7 @@ public class DetailsModel : PageModel
     }
 
     public Team Team { get; set; } = default!;
+    public IList<Game> Games { get; set; } = new List<Game>();
 
     public async Task<IActionResult> OnGetAsync(int? id)
     {
@@ -23,7 +24,9 @@ public class DetailsModel : PageModel
             return NotFound();
         }
 
-        var team = await _context.Team.FirstOrDefaultAsync(m => m.Id == id);
+        var team = await _context.Team
+            .Include(t => t.Players.OrderBy(p => p.Name))
+            .FirstOrDefaultAsync(m => m.Id == id);
         if (team is null)
         {
             return NotFound();
@@ -32,6 +35,13 @@ public class DetailsModel : PageModel
         {
             Team = team;
         }
+
+        Games = await _context.Games
+            .Include(g => g.HomeTeam)
+            .Include(g => g.AwayTeam)
+            .Where(g => g.HomeTeamId == id || g.AwayTeamId == id)
+            .OrderByDescending(g => g.GameDate)
+            .ToListAsync();
 
         return Page();
     }

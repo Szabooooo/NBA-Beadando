@@ -1,0 +1,18 @@
+@model NBADatabase.Models.Team
+
+<dl class="row">
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Name)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Name)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.City)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.City)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Wins)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Wins)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Losses)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Losses)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.PCT)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.PCT)</dd>
+</dl>

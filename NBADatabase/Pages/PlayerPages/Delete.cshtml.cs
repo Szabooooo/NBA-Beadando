@@ -25,7 +25,7 @@ public class DeleteModel : PageModel
             return NotFound();
         }
 
-        var player = await _context.Players.FirstOrDefaultAsync(m => m.Id == id);
+        var player = await _context.Players.Include(p => p.Team).FirstOrDefaultAsync(m => m.Id == id);
         if (player is null)
         {
             return NotFound();

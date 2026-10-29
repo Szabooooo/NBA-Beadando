@@ -55,6 +55,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FtZVBhZ2VzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/GamePages/_GameDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FtZVBhZ2VzXF9HYW1lRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -77,6 +81,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/PlayerPages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxheWVyUGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/PlayerPages/_PlayerDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxheWVyUGFnZXNcX1BsYXllckRldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/Privacy.cshtml]
@@ -105,6 +113,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/TeamPages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhbVBhZ2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/TeamPages/_TeamDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhbVBhZ2VzXF9UZWFtRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/msaso/Desktop/Kodok/C\#/BeadandoNBA/NBADatabase/Pages/_ViewImports.cshtml]

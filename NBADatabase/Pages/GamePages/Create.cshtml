@@ -2,7 +2,7 @@
 @model NBADatabase.Pages.GamePages.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create game";
 }
 
 <h1>Create</h1>
@@ -10,48 +10,41 @@
 <h4>Game</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Game.HomeTeamId" class="control-label"></label>
-                <input asp-for="Game.HomeTeamId" class="form-control" />
-                <span asp-validation-for="Game.HomeTeamId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Game.HomeTeam" class="control-label"></label>
-                <input asp-for="Game.HomeTeam" class="form-control" />
-                <span asp-validation-for="Game.HomeTeam" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Game.HomePoints" class="control-label"></label>
-                <input asp-for="Game.HomePoints" class="form-control" />
-                <span asp-validation-for="Game.HomePoints" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Game.AwayTeamId" class="control-label"></label>
-                <input asp-for="Game.AwayTeamId" class="form-control" />
-                <span asp-validation-for="Game.AwayTeamId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Game.AwayTeam" class="control-label"></label>
-                <input asp-for="Game.AwayTeam" class="form-control" />
-                <span asp-validation-for="Game.AwayTeam" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Game.AwayPoints" class="control-label"></label>
-                <input asp-for="Game.AwayPoints" class="form-control" />
-                <span asp-validation-for="Game.AwayPoints" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <label asp-for="Game.GameDate" class="control-label"></label>
-                <input asp-for="Game.GameDate" class="form-control" />
+                <input asp-for="Game.GameDate" type="date" class="form-control" />
                 <span asp-validation-for="Game.GameDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Game.Winner" class="control-label"></label>
-                <input asp-for="Game.Winner" class="form-control" />
-                <span asp-validation-for="Game.Winner" class="text-danger"></span>
+            <div class="row">
+                <div class="form-group col-8 mb-2">
+                    <span class="text-danger">*</span>
+                    <label asp-for="Game.HomeTeamId" class="control-label"></label>
+                    <select asp-for="Game.HomeTeamId" asp-items="Model.TeamOptions" class="form-select">
+                        <option value="">-- Select a team --</option>
+                    </select>
+                    <span asp-validation-for="Game.HomeTeamId" class="text-danger"></span>
+                </div>
+                <div class="form-group col-4 mb-2">
+                    <label asp-for="Game.HomePoints" class="control-label"></label>
+                    <input asp-for="Game.HomePoints" class="form-control" min="0" />
+                    <span asp-validation-for="Game.HomePoints" class="text-danger"></span>
+                </div>
+                <div class="form-group col-8 mb-2">
+                    <span class="text-danger">*</span>
+                    <label asp-for="Game.AwayTeamId" class="control-label"></label>
+                    <select asp-for="Game.AwayTeamId" asp-items="Model.TeamOptions" class="form-select">
+                        <option value="">-- Select a team --</option>
+                    </select>
+                    <span asp-validation-for="Game.AwayTeamId" class="text-danger"></span>
+                </div>
+                <div class="form-group col-4 mb-2">
+                    <label asp-for="Game.AwayPoints" class="control-label"></label>
+                    <input asp-for="Game.AwayPoints" class="form-control" min="0" />
+                    <span asp-validation-for="Game.AwayPoints" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

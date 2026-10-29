@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NBADatabase.Models;
 using NBADatabase.Data;
@@ -9,25 +10,33 @@ namespace NBADatabase.Pages.GamePages;
 public class CreateModel : PageModel
 {
     private readonly NBADbContext _context;
+    public SelectList TeamOptions { get; set; } = default!;
 
     public CreateModel(NBADbContext context)
     {
         _context = context;
     }
 
-    public IActionResult OnGet()
+    public async Task<IActionResult> OnGetAsync()
     {
+        await LoadTeamsAsync();
         return Page();
     }
 
     [BindProperty]
-    public Game Game { get; set; } = default!;
+    public Game Game { get; set; } = new();
 
-    // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD.
+    private async Task LoadTeamsAsync()
+    {
+        var teams = await _context.Team.OrderBy(x => x.Name).ToListAsync();
+        TeamOptions = new SelectList(teams, "Id", "Name");
+    }
+
     public async Task<IActionResult> OnPostAsync()
     {
         if (!ModelState.IsValid)
         {
+            await LoadTeamsAsync();
             return Page();
         }
 

@@ -1,3 +1,5 @@
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using NBADatabase.Data;
 
@@ -25,6 +27,15 @@ namespace NBADatabase
             }
 
             app.UseHttpsRedirection();
+
+            // Use '.' as the decimal separator everywhere, so numbers like 27.1 match the client-side validation
+            var culture = new CultureInfo("en-US");
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(culture),
+                SupportedCultures = new[] { culture },
+                SupportedUICultures = new[] { culture }
+            });
 
             app.UseRouting();
 
